@@ -107,6 +107,6 @@ inline const Vector2 Vector2::Reflect(const Vector2& v, const Vector2& n)
 
 inline const Vector2 Vector2::Rotate(const Vector2& v, float angle)
 {
-	// TODO: v 벡터를 angle 값만큼 회전하도록 코드를 작성하시오(단 angle 값은 degrees로 값으로 간주합니다.)
+	// TODO: v 벡터를 angle 값만큼 회전하도록 코드를 작성하시오(단 angle 값은 degrees 값으로 간주합니다.)
 	// angle을 radians 값으로 변환하여 코드를 작성합니다
 }
