@@ -3,7 +3,7 @@
 #include "MathUtils.h"
 
 /**
- * 이번 예제에서는 사각형 도형을 Vector2를 사용하여 위, 아래, 좌, 우 방향으로 움직이는 코드를 작성해 봅니다.
+ * 이번 예제에서는 사각형 도형을 벽에 충돌하여 반사시키는 코드를 작성해 봅니다.
  */
 
  // 윈도우 창 사이즈
@@ -14,7 +14,7 @@ constexpr int WIN_HEIGHT = 900;
 constexpr float MOVE_SPEED = 800.0f;
 
 // TODO: 임의의 방향을 설정하고 크기가 MOVE_SPEED인 방향벡터를 만드는 식을 작성하시오
-Vector2 velocity = // ?
+Vector2 velocity = ?
 
 // 박스의 위치 좌표
 Vector2 position{ 400.0f, 400.0f };
@@ -27,10 +27,10 @@ constexpr int WALL_COUNT = 4;
 // 벽
 Box walls[WALL_COUNT]
 {
-	Box{ Vector2(0.0f, 0.0f), Vector2((float)WIN_WIDTH, 20.0f), Vector2::down },
-	Box{ Vector2((float)WIN_WIDTH - 20.0f, 0.0f), Vector2((float)WIN_WIDTH, (float)WIN_HEIGHT), Vector2::left },
-	Box{ Vector2(0.0f, (float)WIN_HEIGHT - 20.0f), Vector2((float)WIN_WIDTH, (float)WIN_HEIGHT), Vector2::up },
-	Box{ Vector2(0.0f, 0.0f), Vector2(20.0f, (float)WIN_HEIGHT), Vector2::right }
+	Box{ Vector2{ 0.0f, 0.0f }, Vector2{ (float)WIN_WIDTH, 20.0f }, Vector2::down },
+	Box{ Vector2{ (float)WIN_WIDTH - 20.0f, 0.0f }, Vector2{ (float)WIN_WIDTH, (float)WIN_HEIGHT }, Vector2::left },
+	Box{ Vector2{ 0.0f, (float)WIN_HEIGHT - 20.0f }, Vector2{ (float)WIN_WIDTH, (float)WIN_HEIGHT }, Vector2::up },
+	Box{ Vector2{ 0.0f, 0.0f }, Vector2{ 20.0f, (float)WIN_HEIGHT }, Vector2::right }
 };
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
@@ -41,7 +41,7 @@ void DrawBox(HDC hdc, const Vector2& min, const Vector2& max, COLORREF color);
 
 int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPWSTR lpCmdLine, _In_ int nShowCmd)
 {
-	WNDCLASSEX wc{ sizeof(WNDCLASSEX), CS_HREDRAW | CS_VREDRAW, WndProc, 0, 0, hInstance, nullptr, LoadCursor(nullptr, IDC_ARROW), (HBRUSH)(COLOR_WINDOW + 1), nullptr, TEXT("GameMath"), nullptr };
+	WNDCLASSEX wc{ sizeof(WNDCLASSEX), CS_HREDRAW | CS_VREDRAW, WndProc, 0, 0, hInstance, nullptr, LoadCursor(nullptr, IDC_ARROW), (HBRUSH)(COLOR_WINDOW + 1), nullptr, TEXT("GAMEMATH"), nullptr };
 	RegisterClassEx(&wc);
 
 	RECT rc{ 0, 0, WIN_WIDTH, WIN_HEIGHT };

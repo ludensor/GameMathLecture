@@ -1,6 +1,6 @@
 #include <Windows.h>
 
-#include "Math.h"
+#include "MathUtils.h"
 
 /**
  * 이번 예제에서는 사각형 도형을 Vector2를 사용하여 위, 아래, 좌, 우 방향으로 움직이는 코드를 작성해 봅니다.
@@ -27,7 +27,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPWSTR lpCmdLine, _In_ int nShowCmd)
 {
-	WNDCLASSEX wc{ sizeof(WNDCLASSEX), CS_HREDRAW | CS_VREDRAW, WndProc, 0, 0, hInstance, nullptr, LoadCursor(nullptr, IDC_ARROW), (HBRUSH)(COLOR_WINDOW + 1), nullptr, TEXT("GameMath"), nullptr };
+	WNDCLASSEX wc{ sizeof(WNDCLASSEX), CS_HREDRAW | CS_VREDRAW, WndProc, 0, 0, hInstance, nullptr, LoadCursor(nullptr, IDC_ARROW), (HBRUSH)(COLOR_WINDOW + 1), nullptr, TEXT("GAMEMATH"), nullptr };
 	RegisterClassEx(&wc);
 
 	RECT rc{ 0, 0, WIN_WIDTH, WIN_HEIGHT };
