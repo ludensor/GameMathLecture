@@ -13,8 +13,10 @@ constexpr int WIN_HEIGHT = 900;
 // 반지름 크기 확대, 축소 속도
 constexpr float SCALE_RATE = 100.0f;
 
+// 원의 반지름
 float radius = 50.0f;
 
+// 점의 개수
 int num_points = 8;
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
