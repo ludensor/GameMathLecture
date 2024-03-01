@@ -9,26 +9,26 @@ struct Vector2
 	static const Vector2 up;
 	static const Vector2 down;
 
-	const Vector2 operator+(const Vector2& v) const;
-	const Vector2 operator-(const Vector2& v) const;
-	const Vector2 operator*(float s) const;
+	constexpr Vector2 operator+(const Vector2& v) const;
+	constexpr Vector2 operator-(const Vector2& v) const;
+	constexpr Vector2 operator*(float s) const;
 
 	Vector2& operator+=(const Vector2& v);
 	Vector2& operator-=(const Vector2& v);
 	Vector2& operator*=(float s);
 };
 
-inline const Vector2 Vector2::operator+(const Vector2& v) const
+inline constexpr Vector2 Vector2::operator+(const Vector2& v) const
 {
 	// TODO: ∫§≈Õ¿« µ°º¿¿ª ¿€º∫«œΩ√ø¿
 }
 
-inline const Vector2 Vector2::operator-(const Vector2& v) const
+inline constexpr Vector2 Vector2::operator-(const Vector2& v) const
 {
 	// TODO: ∫§≈Õ¿« ª¨º¿¿ª ¿€º∫«œΩ√ø¿
 }
 
-inline const Vector2 Vector2::operator*(float s) const
+inline constexpr Vector2 Vector2::operator*(float s) const
 {
 	// TODO: ∫§≈Õ¿« ∞ˆº¿¿ª ¿€º∫«œΩ√ø¿
 }

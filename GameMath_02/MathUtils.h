@@ -11,17 +11,17 @@ struct Vector2
 	static const Vector2 up;
 	static const Vector2 down;
 
-	const Vector2 operator+(const Vector2& v) const;
-	const Vector2 operator-(const Vector2& v) const;
-	const Vector2 operator*(float s) const;
+	constexpr Vector2 operator+(const Vector2& v) const;
+	constexpr Vector2 operator-(const Vector2& v) const;
+	constexpr Vector2 operator*(float s) const;
 
 	Vector2& operator+=(const Vector2& v);
 	Vector2& operator-=(const Vector2& v);
 	Vector2& operator*=(float s);
 
-	static float DotProduct(const Vector2& v1, const Vector2& v2);
-	static const Vector2 Normalize(const Vector2& v);
-	static const Vector2 Reflect(const Vector2& v, const Vector2& n);
+	static constexpr float DotProduct(const Vector2& v1, const Vector2& v2);
+	static Vector2 Normalize(const Vector2& v);
+	static constexpr Vector2 Reflect(const Vector2& v, const Vector2& n);
 };
 
 struct Box
@@ -31,17 +31,17 @@ struct Box
 	Vector2 normal;
 };
 
-inline const Vector2 Vector2::operator+(const Vector2& v) const
+inline constexpr Vector2 Vector2::operator+(const Vector2& v) const
 {
 	return Vector2{ x + v.x, y + v.y };
 }
 
-inline const Vector2 Vector2::operator-(const Vector2& v) const
+inline constexpr Vector2 Vector2::operator-(const Vector2& v) const
 {
 	return Vector2{ x - v.x, y - v.y };
 }
 
-inline const Vector2 Vector2::operator*(float s) const
+inline constexpr Vector2 Vector2::operator*(float s) const
 {
 	return Vector2{ x * s, y * s };
 }
@@ -67,19 +67,19 @@ inline Vector2& Vector2::operator*=(float s)
 	return *this;
 }
 
-inline float Vector2::DotProduct(const Vector2& v1, const Vector2& v2)
+inline constexpr float Vector2::DotProduct(const Vector2& v1, const Vector2& v2)
 {
 	// TODO: 벡터의 내적을 구하는 코드를 작성하시오
 	return 0.0f;
 }
 
-inline const Vector2 Vector2::Normalize(const Vector2& v)
+inline Vector2 Vector2::Normalize(const Vector2& v)
 {
 	// TODO: 벡터의 정규화를 구하는 코드를 작성하시오(제곱근 함수(sqrtf)를 사용할 것)
 	return Vector2();
 }
 
-inline const Vector2 Vector2::Reflect(const Vector2& v, const Vector2& n)
+inline constexpr Vector2 Vector2::Reflect(const Vector2& v, const Vector2& n)
 {
 	// TODO: 입사벡터 v, 법선벡터 n이 주어졌을 때 반사벡터를 구하는 코드를 작성하시오
 	return Vector2();

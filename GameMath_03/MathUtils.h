@@ -14,38 +14,39 @@ struct Vector2
 	static const Vector2 up;
 	static const Vector2 down;
 
-	const Vector2 operator-() const;
-	const Vector2 operator+(const Vector2& v) const;
-	const Vector2 operator-(const Vector2& v) const;
-	const Vector2 operator*(float s) const;
+	constexpr Vector2 operator-() const;
+	constexpr Vector2 operator+(const Vector2& v) const;
+	constexpr Vector2 operator-(const Vector2& v) const;
+	constexpr Vector2 operator*(float s) const;
 
 	Vector2& operator+=(const Vector2& v);
 	Vector2& operator-=(const Vector2& v);
 	Vector2& operator*=(float s);
 
 	static float Length(const Vector2& v);
-	static float DotProduct(const Vector2& v1, const Vector2& v2);
-	static const Vector2 Normalize(const Vector2& v);
-	static const Vector2 Reflect(const Vector2& v, const Vector2& n);
-	static const Vector2 Rotate(const Vector2& v, float angle);
+	static constexpr float LengthSquared(const Vector2& v);
+	static constexpr float DotProduct(const Vector2& v1, const Vector2& v2);
+	static Vector2 Normalize(const Vector2& v);
+	static constexpr Vector2 Reflect(const Vector2& v, const Vector2& n);
+	static Vector2 Rotate(const Vector2& v, float angle);
 };
 
-inline const Vector2 Vector2::operator-() const
+inline constexpr Vector2 Vector2::operator-() const
 {
 	return Vector2{ -x, -y };
 }
 
-inline const Vector2 Vector2::operator+(const Vector2& v) const
+inline constexpr Vector2 Vector2::operator+(const Vector2& v) const
 {
 	return Vector2{ x + v.x, y + v.y };
 }
 
-inline const Vector2 Vector2::operator-(const Vector2& v) const
+inline constexpr Vector2 Vector2::operator-(const Vector2& v) const
 {
 	return Vector2{ x - v.x, y - v.y };
 }
 
-inline const Vector2 Vector2::operator*(float s) const
+inline constexpr Vector2 Vector2::operator*(float s) const
 {
 	return Vector2{ x * s, y * s };
 }
@@ -78,15 +79,20 @@ inline Vector2& Vector2::operator*=(float s)
 
 inline float Vector2::Length(const Vector2& v)
 {
-	return sqrtf(v.x * v.x + v.y * v.y);
+	return sqrtf(LengthSquared(v));
 }
 
-inline float Vector2::DotProduct(const Vector2& v1, const Vector2& v2)
+inline constexpr float Vector2::LengthSquared(const Vector2& v)
+{
+	return v.x * v.x + v.y * v.y;
+}
+
+inline constexpr float Vector2::DotProduct(const Vector2& v1, const Vector2& v2)
 {
 	return v1.x * v2.x + v1.y * v2.y;
 }
 
-inline const Vector2 Vector2::Normalize(const Vector2& v)
+inline Vector2 Vector2::Normalize(const Vector2& v)
 {
 	const float length_squared = v.x * v.x + v.y * v.y;
 
@@ -100,12 +106,12 @@ inline const Vector2 Vector2::Normalize(const Vector2& v)
 	return Vector2{ v.x * inv_length, v.y * inv_length };
 }
 
-inline const Vector2 Vector2::Reflect(const Vector2& v, const Vector2& n)
+inline constexpr Vector2 Vector2::Reflect(const Vector2& v, const Vector2& n)
 {
 	return v - 2.0f * n * DotProduct(v, n);
 }
 
-inline const Vector2 Vector2::Rotate(const Vector2& v, float angle)
+inline Vector2 Vector2::Rotate(const Vector2& v, float angle)
 {
 	// TODO: v 벡터를 angle 값만큼 회전하도록 코드를 작성하시오(단 angle 값은 degrees 값으로 간주합니다.)
 	// angle을 radians 값으로 변환하여 코드를 작성합니다
